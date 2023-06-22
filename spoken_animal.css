@@ -1,0 +1,29 @@
+div.back{
+	background-color:#B0E0E6;
+    
+}
+
+.button1{
+	width: 80px;
+    height: 80px;
+    border: none;
+    border-bottom: solid 2px #c0c0c0;
+    border-radius: 50%;
+    box-shadow: inset 15px 30px 40px rgba(255, 255, 255, 0.5), 0 3px 7px rgba(0, 0, 0, .2);
+    background-image: linear-gradient(#9ed7ff 0%, #8ec7ef 100%);
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 1em;
+}
+.button2{
+	width: 80px;
+    height: 80px;
+    border: none;
+    border-bottom: solid 2px #c0c0c0;
+    border-radius: 50%;
+    box-shadow: inset 15px 30px 40px rgba(255, 255, 255, 0.5), 0 3px 7px rgba(0, 0, 0, .2);
+    background-image: linear-gradient(#ff9e9e 0%, #ef8e8e 100%);
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 1em;
+}
