@@ -1,0 +1,142 @@
+
+div.back{
+	background-image:url(azarasi.jpg);
+	background-size:100%;
+	height:5ex;
+	text-decoration:underline;
+	font-size:7ex;
+    text-align:center;
+    padding-top:6.5ex;
+	padding-bottom:0.5ex;
+	white-space:nowrap;
+}
+.back{
+animation-name: fadeInAnime;
+animation-fill-mode:backwards;
+animation-duration:3s;
+animation-delay: 0.7s;
+}
+
+@keyframes fadeInAnime{
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+h1{
+	font-size:3ex;
+    text-align:center;
+    padding-top:1ex;
+	padding-bottom:1ex;
+	background-color:white;
+}
+img{
+	border-radius:50%;
+}
+td{
+	text-align:center;
+	font-size:3ex;
+}
+th{
+	background-color:#FFFEF2;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  background:linear-gradient(45deg, #90CE9C,#ADE0EE,#CCE7D3	);
+  background-size: 150% 200%;
+  animation: bggradient 20s ease infinite;
+}
+
+@keyframes bggradient{
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+div.picture{
+	float:right;
+	width:17%;
+}
+div.anini{
+	float:left;
+	width:80%;	
+}
+div.anini:after{
+	clear:both;
+}
+footer{
+	text-decoration:underline;
+	font-size:2ex;
+}
+ol{
+display: table;
+margin:0px;
+padding:0px;
+padding-top:2ex;
+width: 100%;
+text-align: center;
+}
+li{
+	width:33%;
+	background-color:skyblue;
+}
+ol li{
+display: table-cell;
+min-width: 50px;
+}
+ol li a{
+display: block;
+width: 100%;
+padding: 10px;
+font-size:3ex;
+text-decoration: none;
+color: navy;
+font-weight: bold;
+}
+li:not(:last-child){
+border-right:2px solid black;
+}
+ol li a:hover{
+color: #E71B1F;
+}
+.button{
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5), 0 0 40px rgba(128, 128, 128, 0.1) ;
+	
+}
+.button:hover {
+    box-shadow: 0 1px 20px rgba(0, 0, 0, 0.6), 0 0 50px rgba(128, 128, 128, 0.1) ;
+}
+
+.button1{
+	width: 50px;
+    height: 50px;
+    border: none;
+    border-bottom: solid 2px #c0c0c0;
+    border-radius: 50%;
+    box-shadow: inset 15px 30px 40px rgba(255, 255, 255, 0.5), 0 3px 7px rgba(0, 0, 0, .2);
+    background-image: linear-gradient(#9ed7ff 0%, #8ec7ef 100%);
+    color: #ffffff;
+    font-weight: 400;
+    font-size: 0.7em;
+}
+.button2{
+	width: 50px;
+    height: 50px;
+    border: none;
+    border-bottom: solid 2px #c0c0c0;
+    border-radius: 50%;
+    box-shadow: inset 15px 30px 40px rgba(255, 255, 255, 0.5), 0 3px 7px rgba(0, 0, 0, .2);
+    background-image: linear-gradient(#ff9e9e 0%, #ef8e8e 100%);
+    color: #ffffff;
+    font-weight: 400;
+    font-size: 0.7em;
+}
