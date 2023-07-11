@@ -11,7 +11,16 @@
 <div class="back">
 <h1>ペン太とおしゃべり</h1>
 </div>
-<img src="pe.png" width="15%" alt="ペンギンの写真" class="button">
+<div class="anini">
+<h2>ペン太に気になることを聞いてみよう！</h2>
+<p>どこに住んでる？　何を食べるの？　得意なことは？ </p>
+<p>何種類いるの？　なんで白黒なの？ 空飛べる？</p>
+<p>ペン太のこともっと教えて！</p>
+</div>
+<img src="pe.png" width="17%" alt="ペンギンの写真" class="picture">
+<p></p>
+<p></p>
+<p></p>
 <p>
 <button id="startButton" class="button1">start</button>
 <button id="stopButton" class="button2">stop</button>
@@ -23,17 +32,20 @@
 <script>
 // 応答の定義（ハッシュ）    
 var response = {
-    "あなたは誰":"僕はペンギンのペン太、よろしくっぺん",
-    "名前は":"ペン太だっぺん",
-    "どこに住んでるの":"雪が降るところだっぺん",
-	"なにしてたの":"ごろごろしてたっぺん",
-	"歩き方かわいいね":"ありがとっぺん",
-	"足短いね":"．．．",
-	"バイバイ":"またきてっぺん",
-	"ひまー":"おしゃべりするっぺん",
-	"得意なことは":"泳ぐことだっぺん",
-	"こんにちは":"はじめましてっぺん",
-    "好きな食べ物は":"さかなだっぺん"
+    "あなたは誰":["僕はペンギンのペンた、よろしくっぺん"],
+    "名前は":["ペンただっぺん"],
+    "どこに住んでる":["僕は雪が降るところだっぺん、友達はあたたかいところだっぺん"],
+	"なにしてたの":["ごろごろしてたっぺん"],
+	"歩き方かわいいね":["ありがとっぺん"],
+	"バイバイ":["またきてっぺん"],
+	"ひまー":["おしゃべりするっぺん"],
+	"得意なことは":["泳ぐことだっぺん"],
+	"こんにちは":["はじめましてっぺん"],
+	"空飛べる":["僕たちは飛べない鳥だっぺん"],
+    "何を食べるの":["さかなだっぺん"],
+	"何種類いるの":["18種類だっぺん"],
+	"なんで白黒なの":["天敵に狙われないようにするためだっぺん"],
+	"ペンたのこともっと教えて":["もちろんだっぺん","https://ja.wikipedia.org/wiki/%E3%83%9A%E3%83%B3%E3%82%AE%E3%83%B3"]
 	
 };
 
@@ -64,17 +76,33 @@ asr.continuous = true; // 継続入力をオン
 
 let output = ''; // 出力
 
+
 asr.onresult = function(event){
     let transcript = event.results[event.resultIndex][0].transcript; // 結果文字列
 
     let output_not_final = '';
     if (event.results[event.resultIndex].isFinal) { // 結果が確定（Final）のとき
 	    asr.abort(); // 音声認識を停止
-        output += transcript + " => " + response[transcript]　 + '<br>'; // 応答結果の出力
+		let ret = response[transcript];
 		
-	    tts.text = response[transcript]　;
+		let answer;
+        let webpage;
+		
+        if(typeof ret == 'undefined'){
+	        answer = "ごめんなさい。わかりません。";
+    	}else{
+            answer = ret[0];
+            webpage = ret[1];
+        }
+
+        output += transcript + ' => ' + answer + '<br>';
+		
+	    tts.text = answer　;
 	    // 再生が終了（end）ときのイベントハンドラ（終了したときに実行される）
 	    tts.onend = function(event){
+		if(typeof webpage != 'undefined'){
+                location.href = webpage; // ページを移動
+        }  
 	        asr.start(); // 音声認識を再開
 	    }
 
